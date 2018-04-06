@@ -1,3 +1,4 @@
+package console;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -13,7 +14,7 @@ public class Console {
     private long time;
 
     public Console() {
-//http://api.openweathermap.org/data/2.5/weather?zip=75063,us&APPID=3d152c10dbf2c7dba2876e9029490a94&units=imperial
+    //http://api.openweathermap.org/data/2.5/weather?zip=75063,us&APPID=3d152c10dbf2c7dba2876e9029490a94&units=imperial
         URL url = null;
         try {
             url = new URL("https://api.ipify.org/");
@@ -47,38 +48,40 @@ public class Console {
 
             if (console.equalsIgnoreCase("get_ip")) {
                 System.out.println(box.whatismyIP());
-            } else if (console.equalsIgnoreCase("get_time")) {
+            } 
+            else if (console.equalsIgnoreCase("get_time")) {
                 System.out.println(box.whatistheTime());
-            } else if (console.length() >= 19) {
+            } 
+            else if (console.length() >= 19) {
                 if (console.substring(0, 19).equalsIgnoreCase("get_random_password")) {
 
                     int value = Integer.parseInt(sc.next());
 
-                    if (value > 144) {
-                        System.out.println("Error: \"" + value + "\" is too large, try values [12 - 144] for \"" + console + "\"");
-                    } else if (value < 12) {
-                        System.out.println("Error: \"" + value + "\" is too small, try values [12 - 144] for \"" + console + "\"");
+                    if (value > 64) {
+                        System.out.println("Error: \"" + value + "\" is too large, try values [8- 64] for \"" + console + "\"");
+                    } else if (value < 8) {
+                        System.out.println("Error: \"" + value + "\" is too small, try values [8 - 64] for \"" + console + "\"");
                     } else {
                         System.out.println(box.getRandomPassword(value));
                     }
 
                 }
-            } else if (console.length() >= 11) {
+            } 
+            else if (console.length() >= 11) {
                 if (console.substring(0, 11).equalsIgnoreCase("get_weather")) {
 
                     String zipcode = sc.next();
                     String weather = box.getWeather(zipcode);
                     if (weather != null) {
-
                         System.out.println(weather);
-
                     }
 
-
                 }
-            } else if (console.equalsIgnoreCase("help")) {
+            } 
+            else if (console.equalsIgnoreCase("help")) {
                 System.out.println("\nget_ip\nget_time\nget_random_password [8-64]\nget_weather [zipcode]\nend_task\n");
-            } else {
+            } 
+            else {
                 if (!console.equalsIgnoreCase("end_task"))
                     System.out.println("Error: Command not found, type \"help\" for more commands");
             }
@@ -128,14 +131,8 @@ public class Console {
             } else if (ran <= 10) {
                 int captital = (int) (Math.random() * 13);
                 password += String.valueOf(charPass[3].charAt(captital));
-
-
             }
-
-
         }
-
-
         return password;
     }
 
