@@ -29,6 +29,7 @@ public class Console {
             else if (console.equalsIgnoreCase("get_time")) {
                 System.out.println(box.whatistheTime());
             }
+
             else if(console.substring(0,19).equals("get_random_password")) {
 
             	int value = Integer.parseInt(sc.next());
@@ -38,6 +39,9 @@ public class Console {
             	}
             	else if(value < 8) {
             		System.out.println("Error: \"" + value + "\" is too small, try values [8 - 64] for \"" + console + "\"");
+            	}
+            	else {
+            		//PUT CODE HERE BRUH
             	}
 
             	
