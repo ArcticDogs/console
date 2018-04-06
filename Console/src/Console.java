@@ -29,31 +29,31 @@ public class Console {
             else if (console.equalsIgnoreCase("get_time")) {
                 System.out.println(box.whatistheTime());
             }
+            else if(console.length() >= 19) {
+            	if(console.substring(0,19).equalsIgnoreCase("get_random_password")) {
 
-            else if(console.substring(0,19).equals("get_random_password")) {
-
-            	int value = Integer.parseInt(sc.next());
-            	
-            	if(value > 64) {
-            		System.out.println("Error: \"" + value + "\" is too large, try values [8 - 64] for \"" + console + "\"");
-            	}
-            	else if(value < 8) {
-            		System.out.println("Error: \"" + value + "\" is too small, try values [8 - 64] for \"" + console + "\"");
-            	}
-            	else {
-            		//PUT CODE HERE BRUH
-            	}
-
-            	
+	            	int value = Integer.parseInt(sc.next());
+	            	
+	            	if(value > 64) {
+	            		System.out.println("Error: \"" + value + "\" is too large, try values [8 - 64] for \"" + console + "\"");
+	            	}
+	            	else if(value < 8) {
+	            		System.out.println("Error: \"" + value + "\" is too small, try values [8 - 64] for \"" + console + "\"");
+	            	}
+	            	else {
+	            		System.out.println(box.getRandomPassword(value));
+	            	}
+	
+	            }
             }
             else if(console.equalsIgnoreCase("help")){
-                System.out.println("\nget_ip\nget_time\nend_task\n");
+                System.out.println("\nget_ip\nget_time\nget_random_password [8-64]\nend_task\n");
             }
 
             else{
                 System.out.println("Error: Command not found, type \"help\" for more commands");
             }
-        }while(!console.equals("end_task"));
+        }while(!console.equalsIgnoreCase("end_task"));
 
 
     }
@@ -67,4 +67,14 @@ public class Console {
         Date day = new Date(time);
         return day.toString();
     }
+    
+    public String getRandomPassword(int value) {
+    	String password = "";
+    	
+    	
+    	return password;
+    }
 }
+
+
+
