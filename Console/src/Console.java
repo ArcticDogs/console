@@ -10,7 +10,7 @@ public class Console {
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
-            time = System.currentTimeMillis();
+            
     }
 
     public static void main(String[] args) throws UnknownHostException {
@@ -29,9 +29,23 @@ public class Console {
             else if (console.equalsIgnoreCase("get_time")) {
                 System.out.println(box.whatistheTime());
             }
+            else if(console.substring(0,19).equals("get_random_password")) {
+
+            	int value = Integer.parseInt(sc.next());
+            	
+            	if(value > 64) {
+            		System.out.println("Error: \"" + value + "\" is too large, try values [8 - 64] for \"" + console + "\"");
+            	}
+            	else if(value < 8) {
+            		System.out.println("Error: \"" + value + "\" is too small, try values [8 - 64] for \"" + console + "\"");
+            	}
+
+            	
+            }
             else if(console.equalsIgnoreCase("help")){
                 System.out.println("\nget_ip\nget_time\nend_task\n");
             }
+
             else{
                 System.out.println("Error: Command not found, type \"help\" for more commands");
             }
@@ -45,6 +59,7 @@ public class Console {
     }
 
     public String whatistheTime(){
+    	time = System.currentTimeMillis();
         Date day = new Date(time);
         return day.toString();
     }
